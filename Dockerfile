@@ -6,6 +6,10 @@ RUN apk add --update less curl sngrep ngrep \
 &&  rm -rf /usr/lib/asterisk/modules/*pjsip* \
 &&  rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
+VOLUME /var/log/asterisk
+VOLUME /etc/asterisk
+VOLUME /var/lib/asterisk
+
 RUN asterisk && sleep 5
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
