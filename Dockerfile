@@ -13,7 +13,7 @@ VOLUME /var/lib/asterisk
 COPY /var/lib/asterisk /tmp
 COPY /etc/asterisk /tmp
 
-cd /tmp
+RUN cd /tmp
 
 RUN cp -af /var/lib/asterisk /var/lib/asterisk/
 RUN cp -af /etc/asterisk /etc/asterisk/
