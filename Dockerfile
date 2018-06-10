@@ -1,7 +1,6 @@
 FROM gliderlabs/alpine:edge
 
 MAINTAINER Pablo Almeida Galvez <pablo.almeida.galvez@gmail.com>
-
 RUN apk add --update less curl sngrep ngrep \
       asterisk asterisk-curl asterisk-speex asterisk-sample-config \
 &&  rm -rf /usr/lib/asterisk/modules/*pjsip* \
