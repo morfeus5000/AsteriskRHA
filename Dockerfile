@@ -10,13 +10,13 @@ VOLUME /var/log/asterisk
 VOLUME /etc/asterisk
 VOLUME /var/lib/asterisk
 
-COPY /var/lib/asterisk /tmp
-COPY /etc/asterisk /tmp
+COPY var-asterisk.tar.gz /tmp
+COPY etc-asterisk.tar.gz /tmp
 
-RUN cd /tmp
-
-RUN cp -af /var/lib/asterisk /var/lib/asterisk/
-RUN cp -af /etc/asterisk /etc/asterisk/
+RUN cd /tmp & \
+	tar -xzvf var-asterisk.tar.gz && tar -xzvf etc-asterisk.tar.gz && \
+	cp -arf /tmp/etc/asterisk /etc/asterisk &&
+	cp -arf /tmp/var/lib/asterisk/ /var/lib/asterisk/
 
 EXPOSE 5060/tcp 5060/udp 5080/tcp 5080/udp
 EXPOSE 5066/tcp 7443/tcp
