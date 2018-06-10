@@ -6,9 +6,15 @@ RUN apk add --update less curl sngrep ngrep \
 &&  rm -rf /usr/lib/asterisk/modules/*pjsip* \
 &&  rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
-VOLUME /var/log/asterisk
-VOLUME /etc/asterisk
-VOLUME /var/lib/asterisk
+#VOLUME /var/log/asterisk
+#VOLUME /etc/asterisk
+#VOLUME /var/lib/asterisk
+
+EXPOSE 5060/tcp 5060/udp 5080/tcp 5080/udp
+EXPOSE 5066/tcp 7443/tcp
+EXPOSE 8021/tcp
+EXPOSE 5038/tcp 5038/udp
+EXPOSE 64535-65535/udp
 
 RUN asterisk && sleep 5
 
