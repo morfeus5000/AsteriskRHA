@@ -15,7 +15,7 @@ COPY etc-asterisk.tar.gz /tmp
 
 RUN cd /tmp && \
 	tar -xzvf var-asterisk.tar.gz && tar -xzvf etc-asterisk.tar.gz && \
-	cp -arf /tmp/etc/asterisk /etc/asterisk &&
+	cp -arf /tmp/etc/asterisk /etc/asterisk && \
 	cp -arf /tmp/var/lib/asterisk/ /var/lib/asterisk/
 
 EXPOSE 5060/tcp 5060/udp 5080/tcp 5080/udp
