@@ -13,7 +13,7 @@ VOLUME /var/lib/asterisk
 COPY var-asterisk.tar.gz /tmp
 COPY etc-asterisk.tar.gz /tmp
 
-RUN cd /tmp & \
+RUN cd /tmp && \
 	tar -xzvf var-asterisk.tar.gz && tar -xzvf etc-asterisk.tar.gz && \
 	cp -arf /tmp/etc/asterisk /etc/asterisk &&
 	cp -arf /tmp/var/lib/asterisk/ /var/lib/asterisk/
