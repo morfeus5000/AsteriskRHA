@@ -18,6 +18,8 @@ RUN cd /tmp && \
 	cp -arf /tmp/etc/asterisk /etc/asterisk && \
 	cp -arf /tmp/var/lib/asterisk/ /var/lib/asterisk/
 
+EXPOSE 5060 5080 5066 7443 8021 5038 64535-65535
+
 RUN asterisk && sleep 5
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
