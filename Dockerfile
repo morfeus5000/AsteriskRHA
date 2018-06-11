@@ -10,13 +10,16 @@ VOLUME /var/log/asterisk
 VOLUME /etc/asterisk
 VOLUME /var/lib/asterisk
 
-COPY var-asterisk.tar.gz /tmp
-COPY etc-asterisk.tar.gz /tmp
+#COPY var-asterisk.tar.gz /
+#COPY etc-asterisk.tar.gz /
 
-RUN cd /tmp && \
-	tar -xzvf var-asterisk.tar.gz && tar -xzvf etc-asterisk.tar.gz && \
-	cp -arf /tmp/etc/asterisk /etc/asterisk && \
-	cp -arf /tmp/var/lib/asterisk/ /var/lib/asterisk/
+ADD etc-asterisk.tar.gz /etc-asterisk.tar.gz
+ADD var-asterisk.tar.gz /var-asterisk.tar.gz
+
+#RUN cd /tmp && \
+#	tar -xzvf var-asterisk.tar.gz && tar -xzvf etc-asterisk.tar.gz && \
+#	cp -rf /tmp/etc/asterisk /etc/asterisk && \
+#	cp -rf /tmp/var/lib/asterisk/ /var/lib/asterisk/
 
 EXPOSE 5060 5080 5066 7443 8021 5038 64535-65535
 
