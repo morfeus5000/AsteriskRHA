@@ -18,12 +18,6 @@ RUN cd /tmp && \
 	cp -arf /tmp/etc/asterisk /etc/asterisk && \
 	cp -arf /tmp/var/lib/asterisk/ /var/lib/asterisk/
 
-EXPOSE 5060/tcp 5060/udp 5080/tcp 5080/udp
-EXPOSE 5066/tcp 7443/tcp
-EXPOSE 8021/tcp
-EXPOSE 5038/tcp 5038/udp
-EXPOSE 64535-65535/udp
-
 RUN asterisk && sleep 5
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
