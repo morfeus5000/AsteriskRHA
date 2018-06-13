@@ -1,14 +1,16 @@
 FROM gliderlabs/alpine:edge
 
 MAINTAINER Pablo Almeida Galvez <pablo.almeida.galvez@gmail.com>
+
+VOLUME /var/log/asterisk
+VOLUME /etc/asterisk
+VOLUME /var/lib/asterisk
+
 RUN apk add --update less curl sngrep ngrep \
       asterisk asterisk-curl asterisk-speex asterisk-sample-config \
 &&  rm -rf /usr/lib/asterisk/modules/*pjsip* \
 &&  rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
 
-VOLUME /var/log/asterisk
-VOLUME /etc/asterisk
-VOLUME /var/lib/asterisk
 
 #COPY var-asterisk.tar.gz /
 #COPY etc-asterisk.tar.gz /
