@@ -14,5 +14,5 @@ RUN curl -s http://downloads.asterisk.org/pub/telephony/asterisk/releases/asteri
 WORKDIR /asterisk-15.4.0
 RUN ./configure; make; make install; make samples
 
-CMD ["/usr/sbin/asterisk", "-rgvvvvvvv"]
+CMD ["/usr/sbin/asterisk", "-vvvvvvv"]
  
